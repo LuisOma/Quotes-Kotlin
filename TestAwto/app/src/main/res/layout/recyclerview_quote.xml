@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#bfbfbf" >
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="quote"
+            type="com.example.testawto.data.models.Quote" />
+    </data>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:id="@+id/tvQuote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:text='@{quote.sr.equals("") ? quote.en : quote.sr}' />
+
+                <TextView
+                    android:id="@+id/tvAuthor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{`- ` + quote.author}" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <Button
+                        android:id="@+id/btnTranslate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transalate"
+                        android:visibility='@{quote.sr.equals("") ? View.GONE : View.VISIBLE}'
+                        android:backgroundTint="@color/colorButtons"/>
+
+                    <LinearLayout
+                        android:id="@+id/layout_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:background="@drawable/relativelayout_background"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true">
+
+                        <ImageView
+                            android:id="@+id/imageViewLike"
+                            android:layout_width="15dp"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/ic_like"/>
+
+                        <TextView
+                            android:id="@+id/tvVotes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{String.valueOf(quote.numberOfVotes).equals("1") ? String.valueOf(quote.numberOfVotes) + ` Voto` : String.valueOf(quote.numberOfVotes) + ` Votos`}'
+                            android:visibility='@{quote.sr.equals("") ? View.GONE : View.VISIBLE}'
+                            android:textSize="10sp"
+                            android:textColor="@color/colorVotesText"
+                            tools:ignore="SmallSp" />
+
+                    </LinearLayout>
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/layout_like"
+                        android:layout_marginTop="3dp"
+                        android:numStars="5"
+                        android:progressTint="@color/colorStars"
+                        android:rating="@{quote.rating}"
+                        android:stepSize="0.5"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="UnusedAttribute" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGray"
+                    android:layout_marginTop="10dp"/>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <Button
+                        android:id="@+id/btnVote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_fav"
+                        android:text="@string/vote"
+                        android:background="@null"
+                        android:drawableStart="@drawable/ic_fav" />
+
+                    <Button
+                        android:id="@+id/btnShare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_share"
+                        android:text="@string/share"
+                        android:background="@null"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:drawableStart="@drawable/ic_share" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+</layout>

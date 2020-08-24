@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Test Awto</string>
+    <string name="transalate">Traducir</string>
+    <string name="share">Compartir</string>
+    <string name="vote">Votar</string>
+
+</resources>

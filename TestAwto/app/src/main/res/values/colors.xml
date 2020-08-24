@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#40a0be</color>
+    <color name="colorPrimaryDark">#40a0be</color>
+    <color name="colorAccent">#40a0be</color>
+
+    <color name="colorStars">#E4C802</color>
+    <color name="colorVotesCard">#FBFBE4</color>
+    <color name="colorVotesText">#4C4B4C</color>
+    <color name="colorButtons">#94D7E8</color>
+    <color name="colorRed">#E41002</color>
+    <color name="colorGray">#D9D9D9</color>
+
+
+</resources>
